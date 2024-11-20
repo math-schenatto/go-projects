@@ -66,6 +66,7 @@ func BuscaCep(cep string) (*ViaCEP, error) {
 	defer req.Body.Close()
 
 	body, error := io.ReadAll(req.Body)
+
 	if error != nil {
 		return nil, error
 	}
