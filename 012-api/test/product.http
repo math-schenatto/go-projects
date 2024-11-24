@@ -1,0 +1,35 @@
+POST http://localhost:8000/products HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "My Product",
+    "price": 100
+}
+
+###
+
+GET http://localhost:8000/products/caa99616-215d-4ea8-ad65-14a27da4286e HTTP/1.1
+Content-Type: application/json
+
+###
+
+GET http://localhost:8000/products?page=1&limit=2 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzI0ODk0MzYsInN1YiI6IjhkYThiMzQ4LWQ2NTQtNDI5Ni1iMGJmLTJhNjE3YWQ0M2YwOSJ9.dQdVvgq6d7HM_z2KbUxGI-UTcCxNAXu35InOvEa25x0
+
+
+###
+
+PUT http://localhost:8000/products/caa99616-215d-4ea8-ad65-14a27da4286e HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Notebook Intel",
+    "price": 100
+}
+
+###
+
+DELETE  http://localhost:8000/products/caa99616-215d-4ea8-ad65-14a27da4286e HTTP/1.1
+Content-Type: application/json
+
