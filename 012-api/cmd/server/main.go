@@ -8,13 +8,32 @@ import (
 	"github.com/go-chi/chi/middleware"
 	"github.com/go-chi/jwtauth"
 	"github.com/math-schenatto/go-projects/api/configs"
+	_ "github.com/math-schenatto/go-projects/api/docs"
 	"github.com/math-schenatto/go-projects/api/internals/entity"
 	"github.com/math-schenatto/go-projects/api/internals/infra/database"
 	"github.com/math-schenatto/go-projects/api/internals/webserver/handlers"
+	httpSwagger "github.com/swaggo/http-swagger"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
 
+// @title           Simple API GO
+// @version         1.0
+// @description     Product API with auhtentication
+// @termsOfService  http://swagger.io/terms/
+
+// @contact.name   Matheus Schenatto
+// @contact.url    http://matheus-schenatto.com.br
+// @contact.email  mathesche@gmail.com
+
+// @license.name   MS License
+// @license.url    http://matheus-schenatto.com.br
+
+// @host      localhost:8000
+// @BasePath  /
+// @securityDefinitions.apikey ApiKeyAuth
+// @in header
+// @name Authorization
 func main() {
 	configs, err := configs.LOadConfig(".")
 	if err != nil {
@@ -53,6 +72,7 @@ func main() {
 	r.Post("/users/generate_token", userHandler.GetJwt)
 
 	//http.HandleFunc("/products", productHandler.CreateProduct)
+	r.Get("/docs/*", httpSwagger.Handler(httpSwagger.URL("http://localhost:8000/docs/doc.json")))
 	http.ListenAndServe(":8000", r)
 }
 
