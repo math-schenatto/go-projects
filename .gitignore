@@ -1,0 +1,32 @@
+# Executáveis gerados pelo Go
+*.exe
+*.dll
+*.so
+*.dylib
+*.out
+
+# Dependências do Go Modules
+/vendor/
+
+# Cache do Go
+/go-build/
+
+# Arquivos de configuração de IDEs e editores
+.idea/
+.vscode/
+*.swp
+
+# Logs e arquivos temporários
+*.log
+*.tmp
+
+# Arquivos de build
+bin/
+dist/
+
+# Docker Compose (em qualquer nível do projeto)
+**/docker-compose*.yml
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
